@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Beating Story &mdash; 50 Years of the Heart, and the Mountains Still to Climb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#170912;--bg2:#210C18;--bg3:#160810;
+    --glow:rgba(228,87,110,.12);--cover-glow:rgba(228,87,110,.5);
+    --crimson:#C4324B;--crimson-lite:#E4576E;--crimson-deep:#A5324A;
+    --gold:#E4C877;--gold-lite:#F0D896;--vital:#3FB8A0;--vital-lite:#5FD3BC;
+    --cloud:#F5F7FA;--panel:#FBF7F3;--ink:#241018;--ink-soft:#5a4048;
+    --line:rgba(255,255,255,.14);--shadow:0 18px 44px rgba(20,4,10,.5);
+    --hero1:#210C18;--hero2:#3A1526;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--cloud);background:var(--bg1);
+    background-image:radial-gradient(1200px 600px at 50% -10%, var(--glow), transparent 60%),
+      linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 44%,var(--bg3) 100%);
+    min-height:100vh;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{position:relative;z-index:2;max-width:780px;margin:0 auto;padding:0 16px 130px}
+
+  /* Cover */
+  #cover{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;
+    background:radial-gradient(900px 520px at 50% 116%, var(--cover-glow), transparent 60%),linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 60%,var(--bg3) 100%)}
+  .cover-in{max-width:540px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .ecg-cover{width:100%;max-width:360px;height:60px;margin:0 auto 6px;display:block}
+  .ecg-cover path{fill:none;stroke:var(--crimson-lite);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:1400;stroke-dashoffset:1400;animation:trace 2.6s ease-out .3s forwards}
+  @keyframes trace{to{stroke-dashoffset:0}}
+  .cover-eyebrow{font-family:'Saira Condensed',sans-serif;letter-spacing:.34em;text-transform:uppercase;font-size:12px;color:var(--crimson-lite);margin:14px 0 6px}
+  .cover h1{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(34px,9.5vw,58px);line-height:.96;margin:0;color:#fff}
+  .cover h1 span{color:var(--crimson-lite)}
+  .cover-sub{color:#e8cdd6;font-size:15px;line-height:1.55;margin:14px auto 4px;max-width:440px}
+  .verse{font-family:'Fraunces',Georgia,serif;font-style:italic;color:#f4e0d6;font-size:16px;line-height:1.55;margin:20px auto 2px;max-width:440px}
+  .verse b{display:block;font-family:'Saira Condensed',sans-serif;font-style:normal;font-weight:600;letter-spacing:.2em;font-size:11px;color:var(--crimson-lite);margin-top:8px;text-transform:uppercase}
+  .field{margin:18px auto 0;max-width:340px;text-align:left}
+  .field label{display:block;font-family:'Saira Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:#d3aeb9;margin:0 4px 6px}
+  .field input{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:16px;font-family:inherit}
+  .field input:focus{outline:none;border-color:var(--crimson);background:rgba(255,255,255,.1)}
+  .btn{cursor:pointer;border:none;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .btn-go{display:inline-block;margin-top:22px;padding:15px 40px;border-radius:999px;font-size:16px;color:#2a0810;background:linear-gradient(180deg,var(--crimson-lite),var(--crimson));box-shadow:0 10px 26px rgba(0,0,0,.4)}
+  .btn-go:active{transform:translateY(1px)}
+  .cover-foot{margin-top:16px;font-family:'Saira Condensed',sans-serif;letter-spacing:.16em;font-size:11px;color:#a6808c;text-transform:uppercase}
+
+  /* Hero */
+  .hero{position:relative;padding:26px 20px 22px;margin:16px 0 6px;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,var(--hero1) 0%,var(--hero2) 100%);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero:before{content:"";position:absolute;left:-10%;right:-10%;bottom:-40%;height:80%;background:radial-gradient(closest-side, var(--cover-glow), transparent);pointer-events:none}
+  .hero-mon{position:absolute;top:0;left:0;right:0;height:44px;opacity:.5;pointer-events:none}
+  .hero-mon path{fill:none;stroke:var(--vital-lite);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .hero-top{position:relative;display:flex;align-items:center;gap:10px;z-index:2}
+  .hero-badge{font-family:'Saira Condensed',sans-serif;letter-spacing:.18em;font-size:12px;color:#f0d3db;border:1px solid rgba(255,255,255,.22);padding:5px 10px;border-radius:8px;background:rgba(0,0,0,.18)}
+  .edit{margin-left:auto;background:rgba(255,255,255,.08);border:1px solid var(--line);color:#e6ccd4;border-radius:9px;padding:7px 11px;font-size:12px;cursor:pointer;font-family:'Saira Condensed',sans-serif;letter-spacing:.12em}
+  .hero h2{position:relative;z-index:2;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(26px,7vw,40px);line-height:1;margin:16px 0 2px}
+  .hero h2 small{display:block;font-size:13px;letter-spacing:.28em;color:var(--crimson-lite);font-weight:600;margin-bottom:5px}
+  .hero-mission{position:relative;z-index:2;font-family:'Fraunces',serif;font-style:italic;color:#f2d9c9;font-size:15px;margin-top:8px;line-height:1.5;min-height:1px}
+  .hero-mission b{color:var(--gold-lite);font-style:normal;font-weight:600}
+  .gauge{position:relative;z-index:2;margin-top:16px}
+  .gauge-top{display:flex;justify-content:space-between;align-items:baseline;font-family:'Saira Condensed',sans-serif;letter-spacing:.14em;font-size:12px;color:#e6ccd4;text-transform:uppercase}
+  .gauge-top b{color:var(--gold-lite);font-size:15px}
+  .bar{height:10px;border-radius:999px;background:rgba(0,0,0,.3);margin-top:8px;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+  .bar > i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--vital),var(--crimson-lite),var(--gold));transition:width .8s cubic-bezier(.2,.7,.2,1)}
+
+  /* Tabs */
+  .tabs{position:sticky;top:0;z-index:20;display:flex;gap:6px;padding:10px 4px;margin:8px -4px 6px;overflow-x:auto;background:linear-gradient(180deg,var(--bg1),rgba(23,9,18,.72));backdrop-filter:blur(8px);scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.05);color:#e0c2cb;font-family:'Saira Condensed',sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:13px;padding:10px 14px;border-radius:11px;white-space:nowrap;transition:.2s}
+  .tab.on{background:linear-gradient(180deg,var(--crimson-lite),var(--crimson));color:#2a0810;border-color:transparent}
+  .view{display:none;animation:fade .35s ease both}
+  .view.on{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .lead{font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.5;color:#f0e2ea;margin:14px 6px 20px}
+
+  /* Timeline (ECG spine) */
+  .era{position:relative;margin-bottom:12px}
+  .era-head{position:relative;z-index:2;display:flex;align-items:baseline;gap:12px;padding:6px 2px 12px}
+  .era-decade{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:30px;color:var(--gold-lite);line-height:1}
+  .era-theme{font-family:'Saira Condensed',sans-serif;font-weight:600;letter-spacing:.04em;font-size:15px;color:#e9cfd8;text-transform:uppercase}
+  .beat{position:relative;padding-left:56px;margin-bottom:10px}
+  .beat .spine{position:absolute;left:20px;top:-6px;bottom:-16px;width:2px;background:linear-gradient(180deg,rgba(228,87,110,.15),var(--crimson) 40%,var(--crimson) 60%,rgba(228,87,110,.15))}
+  .beat .pulse{position:absolute;left:9px;top:16px;width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 30%, var(--hero2), var(--hero1));border:2px solid var(--crimson);z-index:2}
+  .beat.read .pulse{background:linear-gradient(180deg,var(--vital-lite),var(--vital));border-color:var(--vital-lite)}
+  .beat .pulse:after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;background:var(--crimson-lite);transform:translate(-50%,-50%)}
+  .beat.read .pulse:after{background:#0d3a33}
+  .mrow{cursor:pointer;background:var(--panel);color:var(--ink);border-radius:14px;padding:13px 15px;box-shadow:0 12px 26px rgba(20,4,10,.32);display:flex;align-items:center;gap:12px;transition:transform .12s}
+  .mrow:active{transform:scale(.99)}
+  .mrow .yr{flex:0 0 auto;font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:20px;color:var(--crimson-deep);width:46px}
+  .mrow .mtitle{flex:1;font-size:15px;line-height:1.35;font-weight:600;color:var(--ink)}
+  .mrow .tagp{display:inline-block;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.06em;font-size:10px;padding:2px 7px;border-radius:5px;margin-top:5px;text-transform:uppercase}
+  .p-us{background:rgba(196,50,75,.14);color:var(--crimson-deep)}
+  .p-int{background:rgba(63,184,160,.16);color:#1f7a6c}
+  .mrow .chev{flex:0 0 auto;color:var(--crimson-deep);font-size:24px;font-weight:700;opacity:.6}
+
+  /* Frontier / Problems cards */
+  .fcard{position:relative;cursor:pointer;background:var(--panel);color:var(--ink);border-radius:16px;padding:16px 16px 16px 58px;margin-bottom:12px;box-shadow:var(--shadow)}
+  .fcard .ic{position:absolute;left:15px;top:16px;width:30px;height:30px;font-size:19px;display:flex;align-items:center;justify-content:center}
+  .fcard h4{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:19px;margin:0 0 3px;color:var(--ink)}
+  .fcard p{font-size:13.5px;line-height:1.5;color:#4a3038;margin:0}
+  .fcard .chev{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--crimson-deep);font-size:24px;font-weight:700;opacity:.55}
+  .ptag{display:inline-block;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:10px;padding:3px 9px;border-radius:6px;margin-bottom:7px}
+  .t-open{background:rgba(228,199,119,.24);color:#8a6412}
+  .t-near{background:rgba(63,184,160,.18);color:#1f7a6c}
+
+  /* Mission tab */
+  .m-head{background:linear-gradient(180deg,var(--hero2),var(--hero1));border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .m-head:before{content:"\2764";position:absolute;top:-14px;right:6px;font-size:120px;color:rgba(255,255,255,.05);line-height:1}
+  .m-head h3{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:25px;margin:0 0 6px;color:var(--crimson-lite)}
+  .m-head p{font-size:14.5px;line-height:1.55;color:#e6d2da;margin:0}
+  .m-current{background:rgba(228,199,119,.1);border:1px solid rgba(228,199,119,.4);border-radius:14px;padding:16px;margin-bottom:16px}
+  .m-current .lbl{font-family:'Saira Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--gold-lite);margin-bottom:6px}
+  .m-current .val{font-family:'Fraunces',serif;font-style:italic;font-size:19px;line-height:1.4;color:#fff}
+  .m-current .val b{font-style:normal;font-weight:600;color:var(--gold-lite)}
+  .mopt{cursor:pointer;background:var(--panel);color:var(--ink);border-radius:14px;padding:15px 16px;margin-bottom:11px;box-shadow:0 12px 26px rgba(20,4,10,.3);border:2px solid transparent;transition:.15s;position:relative}
+  .mopt.sel{border-color:var(--gold);box-shadow:0 0 0 3px rgba(228,199,119,.3),0 12px 26px rgba(20,4,10,.3)}
+  .mopt h5{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:17px;margin:0 0 3px;color:var(--ink)}
+  .mopt p{font-size:13.5px;line-height:1.45;color:#4a3038;margin:0}
+  .mopt .pick{margin-top:9px;display:inline-block;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--crimson-deep)}
+  .mopt.sel .pick{color:#1f7a6c}
+  .mopt.sel .pick:before{content:"\2713 "}
+
+  /* Mentors */
+  .hero-story{position:relative;cursor:pointer;background:linear-gradient(180deg,var(--hero2),var(--hero1));border:1px solid var(--gold);border-radius:18px;padding:22px 20px;margin-bottom:20px;box-shadow:var(--shadow);overflow:hidden}
+  .hero-story:before{content:"\269A";position:absolute;top:-16px;right:2px;font-size:110px;color:rgba(228,199,119,.08);line-height:1}
+  .hs-eyebrow{font-family:'Saira Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:11px;color:var(--gold-lite)}
+  .hero-story h3{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:27px;margin:5px 0 7px;color:#fff}
+  .hero-story p{font-size:14.5px;line-height:1.55;color:#e9d3c8;margin:0 0 12px;max-width:92%}
+  .hs-open{font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:#2a0810;background:linear-gradient(180deg,var(--gold-lite),var(--gold));padding:9px 15px;border-radius:9px;display:inline-block}
+  .mentor-h{font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:15px;color:var(--crimson-lite);margin:6px 2px 14px}
+  .res{background:var(--panel);color:var(--ink);border-radius:15px;padding:16px 17px;margin-bottom:13px;box-shadow:var(--shadow)}
+  .res .now{font-family:'Saira Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:#2a0810;background:var(--gold-lite);display:inline-block;padding:4px 10px;border-radius:7px;margin-bottom:8px;font-weight:700}
+  .res h4{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:18px;margin:0 0 2px;color:var(--ink)}
+  .res .tagline{font-family:'Saira Condensed',sans-serif;letter-spacing:.06em;font-size:12px;color:var(--crimson-deep);text-transform:uppercase;margin-bottom:8px}
+  .res p{font-size:14px;line-height:1.5;color:#3a2028;margin:0 0 10px}
+  .res .fact{font-size:13px;color:var(--ink-soft);margin:0 0 4px;padding-left:20px;position:relative}
+  .res .fact:before{content:"\2714";position:absolute;left:0;top:0;color:var(--crimson-deep)}
+  .res a{display:inline-block;margin-top:8px;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;color:#2a0810;text-decoration:none;background:linear-gradient(180deg,var(--gold-lite),var(--gold));padding:9px 16px;border-radius:9px}
+  .scrip{margin:8px 2px 0;padding:14px 15px;border-left:3px solid var(--crimson);background:rgba(0,0,0,.2);border-radius:0 12px 12px 0}
+  .scrip p{font-family:'Fraunces',serif;font-style:italic;font-size:15px;line-height:1.5;color:#f4e6ee;margin:0}
+  .scrip b{display:block;font-family:'Saira Condensed',sans-serif;font-style:normal;letter-spacing:.16em;font-size:11px;color:var(--crimson-lite);margin-top:7px;text-transform:uppercase}
+
+  /* Brief screen */
+  .brief-screen{position:fixed;inset:0;z-index:70;background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 100%);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+  .brief-screen.open{transform:none}
+  .brief-bar{flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:16px 16px 10px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.25)}
+  .back{background:rgba(255,255,255,.08);border:1px solid var(--line);color:#f0dae1;border-radius:10px;padding:9px 14px;font-family:'Saira Condensed',sans-serif;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:13px;cursor:pointer}
+  .brief-tag{margin-left:auto;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.08em;font-size:12px;color:#2a0810;background:linear-gradient(180deg,var(--gold-lite),var(--gold));padding:5px 11px;border-radius:8px}
+  .brief-body{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 18px 32px;max-width:780px;width:100%;margin:0 auto}
+  .brief-eyebrow{font-family:'Saira Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--crimson-lite)}
+  .brief-title{font-family:'Saira Condensed',sans-serif;font-weight:700;font-size:clamp(26px,7vw,38px);line-height:1.02;margin:6px 0 4px;color:#fff}
+  .brief-meta{font-family:'Saira Condensed',sans-serif;letter-spacing:.06em;font-size:12.5px;color:var(--vital-lite);text-transform:uppercase;margin-bottom:16px}
+  .blk{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin-bottom:13px}
+  .blk-h{font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--crimson-lite);margin:0 0 9px;display:flex;align-items:center;gap:7px}
+  .blk p{margin:0;font-size:15px;line-height:1.58;color:#f0e2ea}
+  .factline{display:flex;gap:9px;align-items:flex-start;font-size:14px;color:#e8d6de;margin-bottom:7px;line-height:1.45}
+  .factline:last-child{margin-bottom:0}
+  .factline b{color:var(--gold-lite);flex:0 0 auto}
+  .q{margin-bottom:6px}
+  .q .qq{font-size:15px;font-weight:600;color:#fff;margin-bottom:9px;line-height:1.4}
+  .opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#f0e2ea;border-radius:10px;padding:11px 13px;margin-bottom:7px;font-size:14.5px;cursor:pointer;font-family:inherit;transition:.15s}
+  .opt.correct{background:rgba(63,184,160,.32);border-color:var(--vital);color:#fff}
+  .opt.wrong{background:rgba(196,50,75,.3);border-color:var(--crimson-lite)}
+  .opt:disabled{cursor:default}
+  .qex{font-size:13.5px;color:#e0c2cb;margin-top:7px;line-height:1.5;display:none}
+  .qex.show{display:block}
+  .lnk{display:inline-block;margin:0 8px 8px 0;font-family:'Saira Condensed',sans-serif;font-weight:600;letter-spacing:.05em;font-size:14px;color:#f0dae1;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:10px 14px;border-radius:10px}
+  .lnk:after{content:" \2197";color:var(--gold-lite)}
+  .brief-scrip{background:rgba(0,0,0,.24);border-left:3px solid var(--crimson);border-radius:0 12px 12px 0;padding:14px 15px;margin-bottom:6px}
+  .brief-scrip p{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#f4e6ee;margin:0;line-height:1.55}
+  .brief-scrip b{display:block;font-family:'Saira Condensed',sans-serif;font-style:normal;letter-spacing:.14em;font-size:11px;color:var(--crimson-lite);margin-top:7px;text-transform:uppercase}
+  .say{margin-top:4px;background:none;border:1px solid var(--crimson-lite);color:var(--crimson-lite);border-radius:8px;padding:7px 13px;font-size:12px;cursor:pointer;font-family:'Saira Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .brief-foot{flex:0 0 auto;padding:14px 16px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:rgba(0,0,0,.3)}
+  .foot-btn{width:100%;max-width:744px;margin:0 auto;display:block;padding:15px;border-radius:13px;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:15px;cursor:pointer;border:none}
+  .foot-btn.claim{color:#2a0810;background:linear-gradient(180deg,var(--gold-lite),var(--gold))}
+  .foot-btn.claimed{color:#eaf0f6;background:rgba(63,184,160,.3);border:1px solid var(--vital)}
+
+  .footer{text-align:center;margin-top:26px;font-family:'Saira Condensed',sans-serif;letter-spacing:.2em;font-size:11px;color:#8a6874;text-transform:uppercase}
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(30px);z-index:80;background:linear-gradient(180deg,var(--gold-lite),var(--gold));color:#2a0810;font-family:'Saira Condensed',sans-serif;font-weight:700;letter-spacing:.06em;padding:12px 20px;border-radius:12px;box-shadow:0 14px 30px rgba(0,0,0,.45);opacity:0;transition:.35s;font-size:14px;max-width:88%;text-align:center}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  #cfx{position:fixed;inset:0;pointer-events:none;z-index:75}
+  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.ecg-cover path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<section id="cover">
+  <div class="cover-in">
+    <svg class="ecg-cover" viewBox="0 0 360 60" aria-hidden="true"><path d="M0,30 L70,30 L80,30 L86,12 L94,48 L102,30 L120,30 L128,22 L134,38 L142,30 L360,30"/></svg>
+    <div class="cover-eyebrow">A Living History of the Heart</div>
+    <h1>THE BEATING<br><span>STORY</span></h1>
+    <p class="cover-sub">Fifty years of cardiology &mdash; the breakthroughs that rewrote what a heart can survive &mdash; and the mountains still waiting to be climbed. Made for a young doctor to find his calling.</p>
+    <div class="verse">&ldquo;He healeth the broken in heart, and bindeth up their wounds.&rdquo;<b>Psalm 147:3</b></div>
+    <div class="field">
+      <label for="nm">Who is exploring today?</label>
+      <input id="nm" type="text" placeholder="Enter your name" autocomplete="off" />
+    </div>
+    <button class="btn btn-go" id="begin">Begin the journey</button>
+    <div class="cover-foot">For Emmanuel &amp; family &middot; Glory to God alone</div>
+  </div>
+</section>
+
+<div class="wrap" id="app" style="display:none">
+  <div class="hero">
+    <svg class="hero-mon" viewBox="0 0 780 44" preserveAspectRatio="none" aria-hidden="true"><path d="M0,22 L120,22 L134,22 L142,6 L152,40 L162,22 L300,22 L314,14 L322,30 L332,22 L470,22 L484,6 L494,40 L504,22 L640,22 L654,14 L662,30 L672,22 L780,22"/></svg>
+    <div class="hero-top"><span class="hero-badge" id="badge">&#10084; The Heart</span><button class="edit" id="editBtn">Edit</button></div>
+    <h2><small>The story so far, explorer</small><span id="heroName">&nbsp;</span></h2>
+    <div class="hero-mission" id="heroMission"></div>
+    <div class="gauge"><div class="gauge-top"><span>Story explored</span><b id="pct">0%</b></div><div class="bar"><i id="barFill"></i></div></div>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-v="story">The Story</button>
+    <button class="tab" data-v="frontier">The Frontier</button>
+    <button class="tab" data-v="problems">Open Problems</button>
+    <button class="tab" data-v="mentors">Mentors</button>
+    <button class="tab" data-v="mission">Your Mission</button>
+  </div>
+
+  <div class="view on" id="v-story">
+    <p class="lead">A heartbeat runs down this page. Every beat is a moment that changed cardiology forever &mdash; in America and around the world. Tap any one to open its story.</p>
+    <div id="timeline"></div>
+  </div>
+  <div class="view" id="v-frontier">
+    <p class="lead">Where the field is heading in the next ten years &mdash; the tools Emmanuel will train on, and maybe help build. Tap to go deeper.</p>
+    <div id="frontierList"></div>
+  </div>
+  <div class="view" id="v-problems">
+    <p class="lead">These are the great unsolved challenges of the heart. Not dead ends &mdash; invitations. Read each one and ask: <em>could this be mine?</em></p>
+    <div id="problemList"></div>
+  </div>
+  <div class="view" id="v-mentors">
+    <p class="lead">No one climbs alone. Here is a giant who walked this road &mdash; and real doors, right here in Ohio, where Emmanuel can find his own mentors.</p>
+    <div class="hero-story" id="carsonCard">
+      <div class="hs-eyebrow">A story to carry</div>
+      <h3>Dr. Ben Carson</h3>
+      <p>From the bottom of his class in Detroit to the youngest chief of pediatric neurosurgery in America. Tap to read how a praying mother, a library card, and faith built a healer.</p>
+      <span class="hs-open">Read his story &#8250;</span>
+    </div>
+    <div class="mentor-h">Find your mentors</div>
+    <div id="mentorList"></div>
+    <div class="scrip" style="margin-top:6px"><p>&ldquo;Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.&rdquo;</p><b>Proverbs 27:17</b></div>
+  </div>
+  <div class="view" id="v-mission">
+    <div class="m-head"><h3>Choose your mountain</h3><p>The best doctors don&rsquo;t just treat &mdash; they carry a question their whole life. Pick the problem that stirs you most. It becomes your north star, from day one.</p></div>
+    <div class="m-current" id="mCurrent" style="display:none"><div class="lbl">Emmanuel&rsquo;s mission</div><div class="val" id="mCurrentVal"></div></div>
+    <div id="missionList"></div>
+  </div>
+  <div class="footer">The Beating Story &middot; v3 &middot; Glory to God alone</div>
+</div>
+
+<div class="brief-screen" id="brief" aria-hidden="true">
+  <div class="brief-bar"><button class="back" id="backBtn">&larr; Back</button><span class="brief-tag" id="briefTag"></span></div>
+  <div class="brief-body" id="briefBody"></div>
+  <div class="brief-foot" id="briefFoot" style="display:none"><button class="foot-btn claim" id="claimBtn">Make this my mission</button></div>
+</div>
+<div id="toast"></div>
+<canvas id="cfx"></canvas>
+
+<script>
+function lsGet(k){try{return window.localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{window.localStorage.setItem(k,v);}catch(e){}}
+var K={name:'hs_name',read:'hs_read',mission:'hs_mission'};
+var state={name:'',read:{},mission:''};
+function loadState(){state.name=lsGet(K.name)||'';state.mission=lsGet(K.mission)||'';
+  try{state.read=JSON.parse(lsGet(K.read)||'{}');}catch(e){state.read={};}}
+function saveRead(){lsSet(K.read,JSON.stringify(state.read));}
+
+/* ---------------- DATA ---------------- */
+var ERAS=[
+ {decade:'1960s\u201370s',theme:'The tools are born',beats:[
+   {id:'m1958',yr:'1958',place:'us',title:'Seeing inside the arteries \u2014 coronary angiography',
+     brief:{eyebrow:'The first look',
+       why:'For centuries, doctors could not see the arteries that feed the heart. At the Cleveland Clinic in Ohio, Dr. Mason Sones accidentally injected dye straight into a coronary artery \u2014 and discovered it was safe. Suddenly, cardiologists could watch blood flow and spot the exact blockage. Every angioplasty and stent that followed was built on this moment.',
+       facts:[['Who','Mason Sones, Cleveland Clinic'],['Where','Cleveland, Ohio \u2014 in Emmanuel\u2019s home state'],['Why it mattered','You cannot fix what you cannot see']],
+       scrip:{t:'For now we see through a glass, darkly.',r:'1 Corinthians 13:12'}}},
+   {id:'m1961',yr:'1961',place:'us',title:'The Coronary Care Unit is invented',
+     brief:{eyebrow:'A room that saved millions',
+       why:'Before the CCU, many heart-attack patients died on ordinary wards before anyone noticed. The first coronary care units gathered these patients into one closely watched room with constant heart monitoring \u2014 so a dangerous rhythm could be caught and shocked in seconds. In-hospital heart-attack deaths fell sharply.',
+       facts:[['The idea','Watch the heart continuously, act instantly'],['Impact','A model copied by hospitals worldwide']]}},
+   {id:'m1967',yr:'1967',place:'int',title:'The first human heart transplant',
+     brief:{eyebrow:'The impossible, done',
+       why:'In Cape Town, South Africa, Dr. Christiaan Barnard took the heart of one human being and gave it to another. The patient lived only 18 days, but the world changed overnight: a human could live with another person\u2019s heart. Everything about transplant medicine \u2014 and today\u2019s pig-heart research \u2014 traces back to this night.',
+       facts:[['Who','Christiaan Barnard'],['Where','Cape Town, South Africa'],['The lesson','A bold first step opens a whole field']],
+       quiz:[{q:'The first heart transplant patient survived for how long?',opts:['18 days','2 years','10 years'],a:0,ex:'Just 18 days \u2014 yet it proved the impossible was possible, and rejection became the next problem to solve.'}],
+       scrip:{t:'A new heart also will I give you.',r:'Ezekiel 36:26'}}},
+   {id:'m1972',yr:'1972',place:'us',title:'Echocardiography \u2014 watching the heart with sound',
+     brief:{eyebrow:'The beating heart, live',
+       why:'Ultrasound let doctors watch a living heart pump in real time \u2014 no surgery, no radiation. Dr. Harvey Feigenbaum\u2019s work and first textbook made "echo" a everyday tool. Today it is one of the first tests any cardiologist orders.',
+       facts:[['What','Sound waves imaging the beating heart'],['Still used','Every single day, everywhere']]}},
+   {id:'m1977',yr:'1977',place:'int',title:'The first balloon angioplasty',
+     brief:{eyebrow:'Opening arteries without surgery',
+       why:'In Zurich, Dr. Andreas Gr\u00fcntzig threaded a tiny balloon into a blocked coronary artery and inflated it \u2014 crushing the blockage open while the patient stayed awake. No chest opened, no heart stopped. This one act created the entire field of interventional cardiology, and it is performed millions of times a year now.',
+       facts:[['Who','Andreas Gr\u00fcntzig, Zurich'],['Date','September 16, 1977'],['Legacy','The birth of interventional cardiology']],
+       quiz:[{q:'What did Gr\u00fcntzig use to open the blocked artery?',opts:['A laser','A tiny inflatable balloon','A magnet'],a:1,ex:'A balloon on the tip of a catheter \u2014 inflated to press the blockage open. Stents came later to hold it open.'}],
+       scrip:{t:'I can do all things through Christ which strengtheneth me.',r:'Philippians 4:13'}}}
+ ]},
+ {decade:'1980s',theme:'Fighting the heart attack',beats:[
+   {id:'m1980',yr:'1980',place:'us',title:'The first implantable defibrillator (ICD)',
+     brief:{eyebrow:'A rescuer inside the chest',
+       why:'Dr. Michel Mirowski, in Baltimore, built a device small enough to live inside the body that watches for a deadly rhythm and delivers a life-saving shock automatically \u2014 no ambulance, no bystander needed. It has since prevented countless cases of sudden cardiac death.',
+       facts:[['Who','Michel Mirowski, Baltimore'],['What','An automatic defibrillator implanted in the body'],['Saves','People at risk of sudden cardiac death']]}},
+   {id:'m198x',yr:'1980s',place:'int',title:'Clot-busters \u2014 dissolving a heart attack',
+     brief:{eyebrow:'Medicine against the clot',
+       why:'A heart attack is usually a clot suddenly blocking an artery. Thrombolytic ("clot-busting") drugs could dissolve that clot and restore blood flow \u2014 the first time a heart attack could be reversed with medicine rushed in early. It proved that time is muscle: the faster you act, the more heart you save.',
+       facts:[['The insight','A heart attack is a clot \u2014 dissolve it fast'],['Motto born here','"Time is muscle"']]}},
+   {id:'m1987',yr:'1987',place:'us',title:'The first statin \u2014 conquering cholesterol',
+     brief:{eyebrow:'Prevention in a pill',
+       why:'Building on Japanese scientist Akira Endo\u2019s discovery, the first statin was approved in 1987. By lowering LDL ("bad") cholesterol, statins slowed the plaque that clogs arteries \u2014 preventing millions of heart attacks. It was proof that heart disease could be fought before it strikes.',
+       facts:[['Foundation','Akira Endo\u2019s discovery of the first compound'],['Impact','Among the most prescribed medicines on earth'],['Big idea','Prevent the disease, don\u2019t just treat it']],
+       scrip:{t:'An ounce of prevention... wisdom is the principal thing.',r:'Proverbs 4:7 (paraphrase)'}}}
+ ]},
+ {decade:'1990s',theme:'Stents & rhythm',beats:[
+   {id:'m1986',yr:'1986',place:'int',title:'The coronary stent arrives',
+     brief:{eyebrow:'A scaffold to hold arteries open',
+       why:'Balloon angioplasty opened arteries, but they sometimes collapsed again. The stent \u2014 a tiny mesh tube \u2014 was left behind to hold the artery open permanently. First used in Europe, it made angioplasty far more reliable and durable.',
+       facts:[['What','A tiny metal mesh that props the artery open'],['Fixed','Arteries closing back up after a balloon']]}},
+   {id:'m1994',yr:'1994',place:'us',title:'FDA approves the coronary stent',
+     brief:{eyebrow:'The stent goes mainstream',
+       why:'The Palmaz-Schatz stent won US approval in 1994 after trials proved it beat balloon-only treatment. Stenting quickly became one of the most common procedures in all of medicine.',
+       facts:[['Milestone','US approval after strong trial results'],['Result','Stenting becomes routine worldwide']]}},
+   {id:'m199x',yr:'1990s',place:'int',title:'Catheter ablation \u2014 curing bad rhythms',
+     brief:{eyebrow:'Fixing the heart\u2019s wiring',
+       why:'Some racing or irregular heartbeats come from a tiny faulty spot in the heart\u2019s electrical system. Ablation threads a catheter to that exact spot and neutralizes it \u2014 often curing the arrhythmia for good, without surgery.',
+       facts:[['What','Neutralizing a tiny electrical trouble-spot'],['Gift','A cure, not just a lifelong pill']]}}
+ ]},
+ {decade:'2000s',theme:'Smarter, less invasive',beats:[
+   {id:'m2002',yr:'2002',place:'int',title:'The first TAVR \u2014 a new valve through a catheter',
+     brief:{eyebrow:'A valve without open-heart surgery',
+       why:'In Rouen, France, Dr. Alain Cribier replaced a failing aortic valve by threading a new one in through a blood vessel \u2014 no chest opened, no heart stopped. For elderly, fragile patients who could never survive open surgery, it was a lifeline. TAVR would go on to change heart care completely.',
+       facts:[['Who','Alain Cribier, Rouen, France'],['Date','April 16, 2002'],['For whom','Patients too frail for open-heart surgery']],
+       scrip:{t:'He restoreth my soul.',r:'Psalm 23:3'}}},
+   {id:'m2003',yr:'1999\u201303',place:'us',title:'Drug-eluting stents',
+     brief:{eyebrow:'A stent that fights back',
+       why:'Plain metal stents sometimes scarred and re-narrowed. Drug-eluting stents are coated with medicine that slowly releases to keep the artery smooth and open. First implanted in 1999 and widely approved by 2003, they became the new standard.',
+       facts:[['Innovation','Medicine-coated mesh to prevent re-narrowing'],['Became','The default stent worldwide']]}},
+   {id:'m200x',yr:'2000s',place:'us',title:'Rushing to the cath lab \u2014 primary angioplasty',
+     brief:{eyebrow:'Speed becomes the standard',
+       why:'Hospitals learned that the best treatment for a major heart attack is to rush the patient straight to the cath lab and open the artery with a balloon and stent \u2014 fast. "Door-to-balloon time" became a number hospitals raced to shrink, saving lives and heart muscle.',
+       facts:[['Standard','Open the artery mechanically, as fast as possible'],['Measured','"Door-to-balloon time" \u2014 minutes matter']]}}
+ ]},
+ {decade:'2010s',theme:'The minimally-invasive revolution',beats:[
+   {id:'m2011',yr:'2011',place:'us',title:'TAVR approved \u2014 and it overtakes surgery',
+     brief:{eyebrow:'The revolution goes mainstream',
+       why:'The US approved TAVR in 2011, first for patients too sick for surgery, then for more and more people as trials proved it safe. By 2019, TAVR was done more often than open-heart valve surgery in the US \u2014 a stunning shift in less than two decades.',
+       facts:[['2011','First US approval'],['2019','TAVR passes open-heart valve surgery in the US']]}},
+   {id:'m2015',yr:'2015',place:'int',title:'PCSK9 inhibitors \u2014 cholesterol\u2019s next weapon',
+     brief:{eyebrow:'Beyond statins',
+       why:'For people whose cholesterol stays dangerously high even on statins, a new class of injectable drugs (PCSK9 inhibitors) drove LDL to record lows by helping the liver clear it. A powerful new tool against the plaque that causes heart attacks.',
+       facts:[['What','Injections that push "bad" cholesterol very low'],['For whom','People statins can\u2019t fully help']]}},
+   {id:'m2018',yr:'2018',place:'us',title:'A heart monitor on your wrist',
+     brief:{eyebrow:'Cardiology in your pocket',
+       why:'The Apple Watch gained an FDA-cleared ECG that could spot atrial fibrillation \u2014 a common, stroke-causing rhythm \u2014 from the wrist. For the first time, millions could screen their own hearts anytime. It hinted at a future of catching disease early, at home.',
+       facts:[['What','A wearable, FDA-cleared ECG'],['Meaning','Screening moves from the clinic to the wrist']]}}
+ ]},
+ {decade:'2020s',theme:'AI + genes',beats:[
+   {id:'m2022',yr:'2022',place:'us',title:'The first pig-to-human heart transplant',
+     brief:{eyebrow:'A heart from another species',
+       why:'At the University of Maryland, surgeons transplanted a genetically modified pig heart \u2014 with ten gene edits to make it more human-compatible \u2014 into David Bennett, a dying man with no other option. He lived two months. A second patient followed in 2023. These pioneering steps aim at one goal: ending the shortage of donor hearts.',
+       facts:[['Where','University of Maryland, Baltimore'],['The pig','10 genetic edits to reduce rejection'],['The dream','A heart for everyone who needs one']],
+       quiz:[{q:'Why use a genetically modified pig heart?',opts:['Pigs are cheaper','To help solve the donor-organ shortage','Pig hearts never fail'],a:1,ex:'Thousands die waiting for donor hearts. Gene-edited pig organs could one day end that shortage \u2014 but rejection is still being solved.'}],
+       scrip:{t:'I am fearfully and wonderfully made.',r:'Psalm 139:14'}}},
+   {id:'m2023',yr:'2023',place:'int',title:'An obesity drug that protects the heart',
+     brief:{eyebrow:'Prevention leaps forward',
+       why:'The SELECT trial showed that semaglutide \u2014 a GLP-1 medicine first known for weight loss and diabetes \u2014 cut heart attacks and strokes by about 20% in overweight patients with heart disease. It opened a whole new front: treating the roots of heart disease (obesity, metabolism) to stop it upstream.',
+       facts:[['Finding','~20% fewer heart attacks and strokes'],['New front','Attacking heart disease through metabolism']]}},
+   {id:'m2025',yr:'2025',place:'us',title:'AI that spots hidden heart disease',
+     brief:{eyebrow:'The machine sees what eyes miss',
+       why:'An AI tool called EchoNext earned the first FDA clearance for detecting hidden structural heart disease from an ordinary ECG \u2014 and in testing it outperformed cardiologists. It points to a future where a cheap, routine test, read by AI, catches disease years before symptoms. The cardiologist becomes the one who directs the AI and cares for the patient.',
+       facts:[['What','AI reads a routine ECG to catch hidden disease'],['Result','Outperformed cardiologists in testing'],['Emmanuel\u2019s edge','Doctors who master AI will lead']],
+       scrip:{t:'For the LORD giveth wisdom: out of his mouth cometh knowledge.',r:'Proverbs 2:6'}}},
+   {id:'m2026',yr:'2025\u201326',place:'int',title:'Gene editing to switch off high cholesterol',
+     brief:{eyebrow:'A one-and-done cure?',
+       why:'A single infusion of an experimental gene-editing medicine (VERVE-102) permanently switched off a gene in the liver, driving cholesterol far down and keeping it there \u2014 in early trials, for over a year. Instead of a daily pill for life, imagine one treatment that protects the heart for good. It is still being tested, but the door is open.',
+       facts:[['What','One infusion permanently lowers cholesterol'],['Why huge','A possible cure, not a lifelong pill'],['Status','Early clinical trials, promising results']]}}
+ ]}
+];
+
+var FRONTIER=[
+ {id:'f-ai',ic:'\ud83e\udde0',tag:'Near',tagc:'t-near',h:'AI as the cardiologist\u2019s co-pilot',p:'Reading ECGs, echoes and watch data to catch disease years early.',
+   brief:{eyebrow:'The next ten years',why:'AI is learning to spot heart trouble from cheap, routine tests \u2014 often before a person feels anything. The winning doctors won\u2019t be replaced by AI; they\u2019ll be the ones who direct it well, then bring the human judgment and care a machine can\u2019t.',facts:[['Today','First AI ECG tools already FDA-cleared'],['Emmanuel\u2019s role','Learn to lead the machine, not fear it']]}},
+ {id:'f-gene',ic:'\ud83e\uddec',tag:'Near',tagc:'t-near',h:'Gene editing for inherited risk',p:'One treatment that permanently lowers cholesterol or fixes a faulty gene.',
+   brief:{eyebrow:'The next ten years',why:'Some people inherit dangerously high cholesterol or heart-muscle diseases. Gene-editing medicines aim to fix the root cause with a single treatment instead of a lifetime of pills. Early cholesterol trials are already showing durable results.',facts:[['Goal','Cure the cause, once'],['Frontier','Familial high cholesterol, inherited cardiomyopathies']]}},
+ {id:'f-regen',ic:'\ud83c\udf31',tag:'Open',tagc:'t-open',h:'Regenerating heart muscle',p:'Regrowing the muscle a heart attack destroys \u2014 the biggest prize of all.',
+   brief:{eyebrow:'The next ten years',why:'When a heart attack kills muscle, the body replaces it with scar that cannot beat. Scientists are testing stem cells, lab-grown heart cells, and cellular reprogramming to regrow living muscle. No one has fully cracked it \u2014 which is exactly why it\u2019s the greatest opportunity in the field.',facts:[['The problem','Dead heart muscle becomes scar, not muscle'],['The prize','Truly heal the heart, not just patch it']]}},
+ {id:'f-prev',ic:'\ud83d\udee1\ufe0f',tag:'Near',tagc:'t-near',h:'Stopping disease before it starts',p:'New obesity and metabolic drugs attacking heart disease at its roots.',
+   brief:{eyebrow:'The next ten years',why:'Drugs like GLP-1s and SGLT2 inhibitors treat obesity, diabetes and heart failure at once \u2014 tackling the causes of heart disease, not just the damage. The future of cardiology is as much about prevention as repair.',facts:[['Shift','From fixing damage to preventing it'],['Tools','GLP-1 and SGLT2 medicines, lifestyle, screening']]}},
+ {id:'f-newheart',ic:'\u2764\ufe0f',tag:'Open',tagc:'t-open',h:'New hearts for those who run out',p:'Pig-heart transplants, artificial hearts, and lab-grown tissue.',
+   brief:{eyebrow:'The next ten years',why:'Too many people die waiting for a donor heart. Gene-edited pig hearts, mechanical hearts, and bioengineered tissue all aim to end that shortage. The first human pig-heart transplants have happened; making them last is the work ahead.',facts:[['The gap','Thousands wait; too few donor hearts'],['The hope','Xenotransplant, artificial and lab-grown hearts']]}},
+ {id:'f-prec',ic:'\u231a',tag:'Near',tagc:'t-near',h:'Precision care & wearables',p:'Treatment tuned to your genes; monitoring from your wrist, all day.',
+   brief:{eyebrow:'The next ten years',why:'Your genes, your data, and continuous monitoring from wearable devices will let doctors tailor prevention and treatment to each person \u2014 and catch problems in real time, at home.',facts:[['Personal','Care matched to your DNA and data'],['Always-on','Wearables watching, everywhere you go']]}}
+];
+
+var PROBLEMS=[
+ {id:'p-regen',ic:'\ud83c\udf31',tag:'Unsolved',tagc:'t-open',h:'The heart that cannot heal itself',p:'A heart attack kills muscle forever \u2014 no one has solved how to regrow it.',
+   brief:{eyebrow:'An invitation',why:'Cut your skin and it heals. Damage your heart and the muscle is gone for good, replaced by scar. This single fact is behind the world\u2019s heart-failure epidemic. Whoever learns to truly regrow heart muscle will change medicine forever. It has not been done. It could be you.',
+     facts:[['The challenge','Turn scar back into living, beating muscle'],['The reward','Reverse heart failure at its source']],
+     scrip:{t:'He healeth the broken in heart, and bindeth up their wounds.',r:'Psalm 147:3'}}},
+ {id:'p-organ',ic:'\ud83e\ude7a',tag:'Unsolved',tagc:'t-open',h:'The failing-heart epidemic',p:'Heart failure is rising, and there are far too few donor hearts.',
+   brief:{eyebrow:'An invitation',why:'More people are living with weakened, failing hearts than ever, yet only a few thousand donor hearts exist each year. Pig hearts, artificial hearts, and regeneration all aim at this gap. A doctor who helps close it saves not one life, but thousands.',
+     facts:[['The gap','Millions in heart failure; too few donor hearts'],['The frontiers','Xenotransplant, artificial hearts, regeneration']]}},
+ {id:'p-justice',ic:'\u2696\ufe0f',tag:'Injustice',tagc:'t-open',h:'The hearts we fail unequally',p:'Black Americans are far more likely to die of heart disease \u2014 often from social causes, not biology.',
+   brief:{eyebrow:'An invitation',why:'Heart disease does not strike everyone equally. Black Americans are about 54% more likely to die of cardiovascular disease than white Americans \u2014 and research shows much of that gap comes from social conditions, not biology: access, income, stress, and care. This is a problem a doctor with a servant\u2019s heart could take personally and help heal.',
+     facts:[['The gap','~54% higher cardiovascular death for Black Americans'],['The cause','Largely social, not biological \u2014 which means it can change'],['The calling','Justice and medicine, together']],
+     scrip:{t:'Learn to do well; seek judgment, relieve the oppressed.',r:'Isaiah 1:17'}}},
+ {id:'p-prevent',ic:'\ud83c\udf3f',tag:'Solvable',tagc:'t-near',h:'Most heart disease is preventable \u2014 yet it\u2019s still #1',p:'Heart disease is the world\u2019s leading killer, though so much of it could be stopped early.',
+   brief:{eyebrow:'An invitation',why:'Cardiovascular disease is the number one cause of death in the US and the world \u2014 about one in three deaths. Yet a large share is preventable with early detection, lifestyle, and the right medicines. The frontier isn\u2019t only better cures; it\u2019s stopping disease before it ever starts.',
+     facts:[['The scale','#1 cause of death in the US and worldwide'],['The hope','Much of it is preventable'],['The work','Screening, prevention, and reaching people early']]}},
+ {id:'p-women',ic:'\u2640\ufe0f',tag:'Overlooked',tagc:'t-open',h:'Women\u2019s hearts, long overlooked',p:'Heart disease was studied mostly in men \u2014 it can look and act differently in women.',
+   brief:{eyebrow:'An invitation',why:'For decades, heart research focused on men, so women\u2019s heart attacks are more often missed or misjudged \u2014 symptoms can differ, and risks around pregnancy and menopause are still being understood. Closing this knowledge gap is a wide-open, life-saving frontier.',
+     facts:[['The gap','Research long centered on men'],['The need','Better detection and care tailored to women']]}},
+ {id:'p-global',ic:'\ud83c\udf0d',tag:'Global',tagc:'t-open',h:'The world\u2019s #1 killer, everywhere',p:'Heart disease kills more people than anything else on earth \u2014 including where few cardiologists exist.',
+   brief:{eyebrow:'An invitation',why:'Cardiovascular disease is the leading cause of death on the planet, and it hits hardest where doctors, tests, and medicines are scarce. Simple, low-cost tools \u2014 and doctors willing to serve \u2014 could save enormous numbers of lives, including in places like Nigeria and across Africa.',
+     facts:[['The reach','The #1 killer worldwide'],['The need','Low-cost care where cardiologists are few'],['The heart','Medicine as mission, across the world']],
+     scrip:{t:'Go ye into all the world.',r:'Mark 16:15'}}}
+];
+
+var MISSIONS=[
+ {id:'regen',h:'I will help the heart heal itself',p:'Devote myself to regenerating heart muscle \u2014 the greatest unsolved prize in cardiology.',
+   line:'to make broken hearts whole again \u2014 to regrow the muscle a heart attack destroys.'},
+ {id:'ai',h:'I will lead medicine into the age of AI',p:'Master AI as a tool to catch heart disease early, and pair it with human care.',
+   line:'to unite artificial intelligence with a healer\u2019s hands \u2014 catching disease before it strikes.'},
+ {id:'newheart',h:'I will end the wait for a new heart',p:'Work on transplants, pig hearts, or artificial hearts so no one dies waiting.',
+   line:'to end the shortage of hearts \u2014 so no one dies waiting for one.'},
+ {id:'justice',h:'I will heal the hearts we fail unequally',p:'Close the gap so heart disease no longer strikes the poor and overlooked hardest.',
+   line:'to bring healing where it\u2019s needed most \u2014 so heart disease strikes no one unfairly.'},
+ {id:'prevent',h:'I will stop heart disease before it starts',p:'Champion prevention \u2014 screening, lifestyle, and new medicines \u2014 to end the #1 killer upstream.',
+   line:'to stop the world\u2019s deadliest disease before it ever begins.'},
+ {id:'global',h:'I will bring heart care to the whole world',p:'Serve where cardiologists are few \u2014 saving lives with low-cost care and a willing heart.',
+   line:'to carry heart care across the world \u2014 to the places that need it most.'}
+];
+
+var CARSON={name:'Dr. Ben Carson',role:'The healer who started at the bottom',
+  brief:{eyebrow:'A story to carry',
+    why:'Ben Carson was born in 1951 in Detroit to a single mother, Sonya, who had only a third-grade education and worked several jobs to raise her boys. Early on, Ben sat near the bottom of his class. His mother made one rule that changed everything: turn off the television, and read two library books a week &mdash; then write her a report on each. She could barely read the reports herself, but she believed in the power of books. Within about a year and a half, Ben rose to the top of his class. That habit carried him to Yale, then to medical school at the University of Michigan, and into brain surgery at Johns Hopkins. At just 33, he became the youngest chief of pediatric neurosurgery in the country. In 1987, he led a team of dozens through a 22-hour operation to separate twin baby boys joined at the head &mdash; something no one had ever done successfully before. A boy the world overlooked became a healer the world remembers.',
+    facts:[['From','A poor home in Detroit, near the bottom of his class'],['The turning point','His mother\u2019s rule: less TV, two books a week'],['The rise','Yale, then University of Michigan medical school'],['The height','Youngest chief of pediatric neurosurgery in the U.S., at 33'],['The moment','1987: first to successfully separate twins joined at the head']],
+    quiz:[{q:'What was the one habit that turned Ben Carson\u2019s life around?',opts:['Playing sports','Reading two books a week','Moving to a new city'],a:1,ex:'His mother had him read and write reports on two library books a week. Reading lifted him from the bottom of the class to the top.'}],
+    scrip:{t:'Train up a child in the way he should go: and when he is old, he will not depart from it.',r:'Proverbs 22:6'}}};
+
+var MENTORS=[
+ {now:'Start here',h:'Black Men in White Coats',tag:'Mentorship & inspiration',p:'A national movement founded by Dr. Dale Okorodudu to help young people &mdash; especially Black youth &mdash; become doctors, through free youth summits where students meet physicians who look like them, spend a day in a white coat, and find mentors.',facts:['Free youth summits held across the country','Made to inspire and mentor future doctors'],href:'https://www.blackmeninwhitecoats.org',cta:'Explore summits'},
+ {h:'Diverse Medicine',tag:'Free online mentoring',p:'Also founded by Dr. Okorodudu, this free online community connects aspiring doctors with mentors, advice, and a network of students on the same journey &mdash; from anywhere.',facts:['Free to join','Mentors and a like-minded community'],href:'https://diversemedicine.org',cta:'Join free'},
+ {now:'In Columbus',h:'OSU MD Camp',tag:'Summer program \u00b7 free',p:'A three-week summer day camp run by Ohio State\u2019s Area Health Education Center for rising high-school sophomores, juniors and seniors. Students shadow doctors at OSU Wexner Medical Center and Nationwide Children\u2019s and taste real medical-school life \u2014 right in Emmanuel\u2019s city.',facts:['Shadow physicians at Wexner + Nationwide Children\u2019s','For rising sophomores through seniors'],href:'https://medicine.osu.edu/education/md-camp',cta:'See MD Camp'},
+ {h:'Nationwide Children\u2019s Hospital',tag:'Shadowing & paid work \u00b7 Columbus',p:'Columbus\u2019s children\u2019s hospital offers job shadowing for students 14 and older, plus a paid Youth & Young Adult Employment program (ages 16\u201321) and the "Mechanisms" program for serious science students eyeing medicine.',facts:['Shadowing from age 14','Paid summer work from age 16'],href:'https://www.nationwidechildrens.org/careers/whats-your-passion/student-opportunities/high-school',cta:'See student programs'},
+ {h:'Cleveland Clinic \u2014 Youth & College Education',tag:'Camps & paid internships',p:'The world-famous heart hospital runs CORE summer camps (grades 9\u201312) and paid high-school summer internships through its Center for Youth & College Education, letting students work beside real caregivers.',facts:['CORE summer camps for grades 9\u201312','Paid summer internships available'],href:'https://my.clevelandclinic.org/departments/education/center-for-youth-and-college-education',cta:'Explore programs'},
+ {h:'SNMA & the pre-med MAPS network',tag:'For the college years',p:'The Student National Medical Association supports underrepresented students in medicine, and its Minority Association of Pre-Medical Students (MAPS) mentors college pre-meds \u2014 a place to belong once Emmanuel reaches university.',facts:['Mentoring, conferences, and community','A home for future minority physicians'],href:'https://snma.org',cta:'See SNMA'},
+ {h:'HOSA \u2014 Future Health Professionals',tag:'Student organization',p:'A national organization for students headed into healthcare, with leadership, competitions, and community. Ask whether Emmanuel\u2019s school has a chapter, or how to start one.',facts:['Built for future doctors','Leadership + skills competitions'],href:'https://hosa.org',cta:'Explore HOSA'},
+ {h:'AAMC Aspiring Docs',tag:'The official roadmap',p:'The Association of American Medical Colleges runs a free hub explaining every step to becoming a doctor, with guidance and stories to keep the vision alive.',facts:['Official med-school guidance','Free resources and real stories'],href:'https://students-residents.aamc.org/aspiring-docs/aspiring-docs',cta:'Read the guide'},
+ {h:'How to find a mentor of your own',tag:'Do this now',p:'Programs are powerful, but a personal mentor changes a life. Ask your own doctor if you can shadow. Ask family, teachers, and church for an introduction to a physician. Then be reliable, curious, and grateful &mdash; people invest in the faithful.',facts:['Ask your doctor, school, and church network','Shadow, ask questions, follow up, say thank you'],href:'https://students-residents.aamc.org/aspiring-docs/aspiring-docs',cta:'Ideas to start'}
+];
+
+/* ---------------- ENGINE ---------------- */
+function el(id){return document.getElementById(id);}
+function allBeats(){var a=[];for(var i=0;i<ERAS.length;i++){for(var j=0;j<ERAS[i].beats.length;j++){a.push(ERAS[i].beats[j]);}}return a;}
+function totalExplorable(){return allBeats().length+FRONTIER.length+PROBLEMS.length;}
+function readCount(){var n=0;for(var k in state.read){if(state.read[k]){n++;}}return n;}
+
+function renderHero(){el('heroName').innerHTML=state.name?state.name:'&nbsp;';
+  var pct=Math.round((readCount()/totalExplorable())*100);el('pct').innerHTML=pct+'%';el('barFill').style.width=pct+'%';
+  var mh=el('heroMission');
+  if(state.mission){var m=findMission(state.mission);mh.innerHTML='Mission: <b>'+m.h+'</b>';}
+  else{mh.innerHTML='<span style="color:#c99aa8">No mission chosen yet &mdash; find yours in <b style="color:#E4C877">Your Mission</b></span>';}}
+function findMission(id){for(var i=0;i<MISSIONS.length;i++){if(MISSIONS[i].id===id){return MISSIONS[i];}}return null;}
+
+function renderTimeline(){var box=el('timeline');box.innerHTML='';
+  for(var i=0;i<ERAS.length;i++){var era=ERAS[i];
+    var wrap=document.createElement('div');wrap.className='era';
+    var h='<div class="era-head"><span class="era-decade">'+era.decade+'</span><span class="era-theme">'+era.theme+'</span></div>';
+    for(var j=0;j<era.beats.length;j++){var b=era.beats[j];var rd=state.read[b.id]?' read':'';
+      var tagc=(b.place==='us')?'p-us':'p-int';var tagt=(b.place==='us')?'United States':'International';
+      h+='<div class="beat'+rd+'"><div class="spine"></div><div class="pulse"></div>'+
+         '<div class="mrow" data-id="'+b.id+'" data-kind="beat"><span class="yr">'+b.yr+'</span>'+
+         '<span class="mtitle">'+b.title+'<span class="tagp '+tagc+'">'+tagt+'</span></span><span class="chev">&#8250;</span></div></div>';}
+    wrap.innerHTML=h;box.appendChild(wrap);}
+  bindRows();}
+function renderFrontier(){var box=el('frontierList');box.innerHTML='';
+  for(var i=0;i<FRONTIER.length;i++){var f=FRONTIER[i];var rd=state.read[f.id]?'':'';
+    var d=document.createElement('div');d.className='fcard';d.setAttribute('data-id',f.id);d.setAttribute('data-kind','frontier');
+    d.innerHTML='<span class="ic">'+f.ic+'</span><span class="ptag '+f.tagc+'">'+f.tag+'</span><h4>'+f.h+'</h4><p>'+f.p+'</p><span class="chev">&#8250;</span>';
+    box.appendChild(d);}bindCards('frontierList');}
+function renderProblems(){var box=el('problemList');box.innerHTML='';
+  for(var i=0;i<PROBLEMS.length;i++){var p=PROBLEMS[i];
+    var d=document.createElement('div');d.className='fcard';d.setAttribute('data-id',p.id);d.setAttribute('data-kind','problem');
+    d.innerHTML='<span class="ic">'+p.ic+'</span><span class="ptag '+p.tagc+'">'+p.tag+'</span><h4>'+p.h+'</h4><p>'+p.p+'</p><span class="chev">&#8250;</span>';
+    box.appendChild(d);}bindCards('problemList');}
+function renderMentors(){var box=el('mentorList');box.innerHTML='';
+  for(var i=0;i<MENTORS.length;i++){var r=MENTORS[i];var f='';for(var j=0;j<r.facts.length;j++){f+='<p class="fact">'+r.facts[j]+'</p>';}
+    var d=document.createElement('div');d.className='res';
+    d.innerHTML=(r.now?'<span class="now">'+r.now+'</span>':'')+'<h4>'+r.h+'</h4><div class="tagline">'+r.tag+'</div><p>'+r.p+'</p>'+f+'<a href="'+r.href+'" target="_blank" rel="noopener">'+r.cta+' &rarr;</a>';
+    box.appendChild(d);}}
+function renderMission(){var box=el('missionList');box.innerHTML='';
+  var cur=el('mCurrent');
+  if(state.mission){var m=findMission(state.mission);cur.style.display='block';
+    el('mCurrentVal').innerHTML=(state.name?state.name:'I')+', your mission is <b>'+m.line+'</b>';}
+  else{cur.style.display='none';}
+  for(var i=0;i<MISSIONS.length;i++){var mo=MISSIONS[i];var sel=(state.mission===mo.id)?' sel':'';
+    var d=document.createElement('div');d.className='mopt'+sel;d.setAttribute('data-id',mo.id);
+    d.innerHTML='<h5>'+mo.h+'</h5><p>'+mo.p+'</p><span class="pick">'+(state.mission===mo.id?'Your mission':'Choose this')+'</span>';
+    box.appendChild(d);}
+  var opts=box.querySelectorAll('.mopt');
+  for(var k=0;k<opts.length;k++){opts[k].addEventListener('click',function(){chooseMission(this.getAttribute('data-id'));});}}
+
+function chooseMission(id){var changed=(state.mission!==id);state.mission=id;lsSet(K.mission,id);renderMission();renderHero();
+  if(changed){var m=findMission(id);bigBurst();toast('Mission set: '+m.h);safeSpeak((state.name?state.name+', ':'')+'your mission is '+m.line);}}
+
+/* Brief screen */
+var BRIEF_ID=null,BRIEF_KIND=null,PUSHED=false;
+function dataFor(id,kind){if(kind==='hero'){return CARSON;}
+  if(kind==='beat'){var bs=allBeats();for(var i=0;i<bs.length;i++){if(bs[i].id===id){return bs[i];}}}
+  if(kind==='frontier'){for(var j=0;j<FRONTIER.length;j++){if(FRONTIER[j].id===id){return FRONTIER[j];}}}
+  if(kind==='problem'){for(var k=0;k<PROBLEMS.length;k++){if(PROBLEMS[k].id===id){return PROBLEMS[k];}}}return null;}
+function openBrief(id,kind){var item=dataFor(id,kind);if(!item){return;}var b=item.brief;
+  var tag,title,meta;
+  if(kind==='hero'){tag='A story to carry';title=item.name;meta=item.role;}
+  else if(kind==='beat'){tag=(item.place==='us')?'USA':'World';title=item.title;meta=item.yr+' &middot; '+b.eyebrow;}
+  else if(kind==='frontier'){tag='Frontier';title=item.h;meta=b.eyebrow;}
+  else{tag='Open problem';title=item.h;meta=b.eyebrow;}
+  el('briefTag').innerHTML=tag;
+  el('briefBody').innerHTML='<div class="brief-eyebrow">'+b.eyebrow+'</div><h1 class="brief-title">'+title+'</h1><div class="brief-meta">'+meta+'</div>'+buildBlocks(b);
+  el('briefBody').scrollTop=0;
+  var foot=el('briefFoot');
+  if(kind==='problem'&&missionForProblem(id)){foot.style.display='block';setClaimBtn(id);}
+  else{foot.style.display='none';}
+  BRIEF_ID=id;BRIEF_KIND=kind;
+  if(kind!=='hero'){state.read[id]=true;saveRead();}
+  var sc=el('brief');sc.className='brief-screen open';sc.setAttribute('aria-hidden','false');bindQuiz();bindSay();
+  try{if(!PUSHED){history.pushState({b:1},'');PUSHED=true;}}catch(e){}}
+function closeBrief(fromPop){var sc=el('brief');sc.className='brief-screen';sc.setAttribute('aria-hidden','true');
+  BRIEF_ID=null;BRIEF_KIND=null;renderHero();renderTimeline();
+  if(!fromPop&&PUSHED){try{history.back();}catch(e){}PUSHED=false;}else{PUSHED=false;}}
+function missionForProblem(pid){var map={'p-regen':'regen','p-organ':'newheart','p-justice':'justice','p-prevent':'prevent','p-global':'global','p-women':'regen'};return map[pid];}
+function setClaimBtn(pid){var mid=missionForProblem(pid);var btn=el('claimBtn');
+  if(state.mission===mid){btn.className='foot-btn claimed';btn.innerHTML='&#10003; This is your mission';}
+  else{btn.className='foot-btn claim';btn.innerHTML='Make this my mission';}}
+function buildBlocks(b){var h='';
+  if(b.why){h+='<div class="blk"><p class="blk-h">&#10084; The story</p><p>'+b.why+'</p></div>';}
+  if(b.facts){var fh='';for(var i=0;i<b.facts.length;i++){fh+='<div class="factline"><b>'+b.facts[i][0]+':</b><span>'+b.facts[i][1]+'</span></div>';}h+='<div class="blk"><p class="blk-h">&#9873; Key facts</p>'+fh+'</div>';}
+  if(b.quiz){h+=buildQuiz(b.quiz);}
+  if(b.links){var lh='';for(var j=0;j<b.links.length;j++){lh+='<a class="lnk" href="'+b.links[j][1]+'" target="_blank" rel="noopener">'+b.links[j][0]+'</a>';}h+='<div class="blk"><p class="blk-h">&#128279; Go further</p>'+lh+'</div>';}
+  if(b.scrip){h+='<div class="brief-scrip"><p>&ldquo;'+b.scrip.t+'&rdquo;</p><b>'+b.scrip.r+'</b><button class="say" data-say="'+encodeURIComponent(b.scrip.t)+'">&#9654; Read aloud</button></div>';}
+  return h;}
+function buildQuiz(qs){var h='<div class="blk"><p class="blk-h">&#127919; Test yourself</p>';
+  for(var i=0;i<qs.length;i++){var q=qs[i];var opts='';for(var j=0;j<q.opts.length;j++){opts+='<button class="opt" data-q="'+i+'" data-o="'+j+'" data-a="'+q.a+'">'+q.opts[j]+'</button>';}
+    h+='<div class="q"><div class="qq">'+q.q+'</div>'+opts+'<div class="qex" data-ex="'+i+'">'+q.ex+'</div></div>';}
+  return h+'</div>';}
+
+function bindRows(){var rows=document.querySelectorAll('#timeline .mrow');
+  for(var i=0;i<rows.length;i++){rows[i].addEventListener('click',function(){openBrief(this.getAttribute('data-id'),'beat');});}}
+function bindCards(listId){var cards=document.querySelectorAll('#'+listId+' .fcard');
+  for(var i=0;i<cards.length;i++){cards[i].addEventListener('click',function(){openBrief(this.getAttribute('data-id'),this.getAttribute('data-kind'));});}}
+function bindQuiz(){var opts=el('briefBody').querySelectorAll('.opt');
+  for(var i=0;i<opts.length;i++){opts[i].addEventListener('click',function(){var qi=this.getAttribute('data-q');var chosen=parseInt(this.getAttribute('data-o'),10);var ans=parseInt(this.getAttribute('data-a'),10);
+    var group=el('briefBody').querySelectorAll('.opt[data-q="'+qi+'"]');
+    for(var j=0;j<group.length;j++){group[j].disabled=true;var oj=parseInt(group[j].getAttribute('data-o'),10);if(oj===ans){group[j].className='opt correct';}else if(oj===chosen){group[j].className='opt wrong';}}
+    var ex=el('briefBody').querySelector('.qex[data-ex="'+qi+'"]');if(ex){ex.className='qex show';}if(chosen===ans){burst();}});}}
+function bindSay(){var btns=el('briefBody').querySelectorAll('.say');for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(e){e.stopPropagation();safeSpeak(decodeURIComponent(this.getAttribute('data-say')));});}}
+
+function bindTabs(){var tabs=document.querySelectorAll('#tabs .tab');
+  for(var i=0;i<tabs.length;i++){tabs[i].addEventListener('click',function(){var v=this.getAttribute('data-v');var all=document.querySelectorAll('#tabs .tab');
+    for(var j=0;j<all.length;j++){all[j].className='tab';}this.className='tab on';var views=document.querySelectorAll('.view');for(var k=0;k<views.length;k++){views[k].className='view';}el('v-'+v).className='view on';window.scrollTo(0,0);});}}
+
+function safeSpeak(txt){try{if(!('speechSynthesis' in window)){return;}window.speechSynthesis.cancel();var u=new window.SpeechSynthesisUtterance(txt);u.rate=.92;u.pitch=1.02;window.speechSynthesis.speak(u);}catch(e){}}
+var toastT=null;function toast(m){var t=el('toast');t.innerHTML=m;t.className='show';if(toastT){clearTimeout(toastT);}toastT=setTimeout(function(){t.className='';},2400);}
+var cvs,ctx,parts=[],raf=null;
+function initFx(){cvs=el('cfx');ctx=cvs.getContext('2d');resizeFx();window.addEventListener('resize',resizeFx);}
+function resizeFx(){if(!cvs){return;}cvs.width=window.innerWidth;cvs.height=window.innerHeight;}
+function spawn(n){var colors=['#E4576E','#C4324B','#E4C877','#3FB8A0','#F5F7FA'];for(var i=0;i<n;i++){parts.push({x:cvs.width/2+(Math.random()-.5)*160,y:cvs.height*.3,vx:(Math.random()-.5)*7,vy:Math.random()*-9-3,g:.24,s:Math.random()*7+4,c:colors[(Math.random()*colors.length)|0],rot:Math.random()*6,vr:(Math.random()-.5)*.4,life:70+Math.random()*30});}if(!raf){tick();}}
+function tick(){ctx.clearRect(0,0,cvs.width,cvs.height);for(var i=parts.length-1;i>=0;i--){var p=parts[i];p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;p.life--;
+    ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.55);ctx.restore();if(p.life<=0||p.y>cvs.height+30){parts.splice(i,1);}}
+  if(parts.length){raf=window.requestAnimationFrame(tick);}else{raf=null;ctx.clearRect(0,0,cvs.width,cvs.height);}}
+function burst(){spawn(24);}function bigBurst(){spawn(90);}
+
+function showApp(){el('cover').style.display='none';el('app').style.display='block';renderAll();}
+function renderAll(){renderHero();renderTimeline();renderFrontier();renderProblems();renderMentors();renderMission();}
+function begin(){var nm=el('nm').value.replace(/\s+/g,' ').trim();if(!nm){el('nm').focus();el('nm').style.borderColor='#E4576E';return;}
+  state.name=nm;lsSet(K.name,nm);showApp();toast('Welcome, '+nm+'.');}
+function init(){loadState();initFx();bindTabs();
+  el('begin').addEventListener('click',begin);
+  el('nm').addEventListener('keydown',function(e){if(e.keyCode===13){begin();}});
+  el('carsonCard').addEventListener('click',function(){openBrief('carson','hero');});
+  el('backBtn').addEventListener('click',function(){closeBrief(false);});
+  window.addEventListener('popstate',function(){if(BRIEF_ID){closeBrief(true);}});
+  el('claimBtn').addEventListener('click',function(){if(BRIEF_KIND==='problem'&&BRIEF_ID){var mid=missionForProblem(BRIEF_ID);chooseMission(mid);setClaimBtn(BRIEF_ID);}});
+  el('editBtn').addEventListener('click',function(){var nm=window.prompt('Name:',state.name);if(nm!==null&&nm.replace(/\s+/g,' ').trim()){state.name=nm.replace(/\s+/g,' ').trim();lsSet(K.name,state.name);renderHero();renderMission();}});
+  if(state.name){showApp();}}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+</script>
+</body>
+</html>
